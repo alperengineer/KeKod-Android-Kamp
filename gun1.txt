@@ -1,0 +1,85 @@
+		KOMUTLAR
+
+	Kayıt ve Kurulum Komutları
+	
+git config --global user.name "user_name": Git kullanıcı adının girildiği komuttur.
+git config --global user.email "email": Git kullanıcı emailinin girildiği komuttur.
+git config --global color.ui "choice": Git'in renkli çıktılarıyla ilgili yapılandırma seçeneklerini ayarlar.
+
+	Dizinlerde Git Başlatma Komutları
+
+git init: Git için yerel bir repository oluşturur. Git işlemini başlatır.
+git init --bare: Working Tree'deki değişikleri almadan çıplak bir yerel repository oluşturur.
+git init --template: Bir Git repositorysini oluştururken belirli bir şablon dizini oluşturulmasını sağlar.
+
+	Veri Çekme ve Yükleme Komutları
+
+git clone <url>: Verilen url adresindeki git repositoryden verileri bulunduğu dizine alır.
+git clone --branch <branch_name> <url>: Verilen url adresindeki adı verilen branch'i bulunduğu dizine klonlar.
+git clone --single-branch <branch_name> <url>: Sadece adı girilen branch'in geçmişi ile birlikte bulunduğu dizine klonlar.
+git clone --recursive: Bir repositorydeki alt modüllerle beraber klonlanmasını sağlar.
+git fetch: Local repositorydeki ve uzak sunucudaki değişiklikleri belirler fakat uzak sunucudan verileri çekmez.
+git pull: Local repositorydeki ve uzak sunucudaki değişiklikleri belirler ve verileri local sunucuya ekler. Aynı satır/dosya/dizinde yapılan değişiklikler varsa karar yazılımcıya bırakılır.(GIT CONFLICT)
+git push: Uzak sunucudaki değişiklikleri gönderen komuttur.
+
+	Commit Atma ve Geri Alma Komutları
+
+git commit: Local repository'ye takip edilen dosyaların kaydını sağlar.[git commit -m "commit message"]
+git restore: Önceki commite geri döndürür.
+git revert <commi_id(hash)>: Atılan commiti geri alır fakat daha önceki commitler silinmez.
+
+
+	Durum Sorgu Komutları
+
+git status: İçinde bulunulan dizinin içindeki anlık durumu gösterir.
+git status -s: Son durumun özet olarak gösterir.
+git log: Git Working Area'da meydana gelen commitleri listeler.
+git diff: Dosya/dizindeki değişiklikleri gösteren komuttur.
+git diff --stage: Stage Area'daki mevcut kayıtlara göre dosya/dizindeki farklılıkları gösteren komuttur.
+git diff --stat: Bir dosya üzerinde değişen dosyaların listesini, eklenen ve çıkarılan satır sayısını gösteren komuttur.
+
+
+	Yerel Repository'ye Veri Ekleme ve Silme Komutları
+
+git add: Bir dizindeki dosyaları Git'in kayıt altına almasını sağlar.
+git add . / git add --all/-a: Dizindeki tüm dosyları kayıt altına alır.
+git add -u: Dizinde sadece güncelleme içeren dosyaları kayıt altına alır.
+git add *.txt: Sadece .txt uzantılı dosyaları kayıt altına alır.
+git reset: Stage Area'daki değişiklikleri iptal eder.(Değişiklik dosylarda olmaz sadece Git sisteminde meydana gelir.)
+git reset --hard: Geçmişteki commite dönüş yapar ve geri dönülemez.
+git reset --soft: Geçmişteki commite dönüş yapar fakat geri dönüş sağlanabilir.
+
+	Dallanma Komutları
+
+git branch: Repository'deki branchleri listler.
+git branch <branch_name>: Belirtilen adda branch oluşturur.
+git branch -d <branch_name>: Belirtilen addaki branch'i siler
+gir branch -m <old_name> <new_name>: Var olan bir branch'in adını değiştirir.
+git checkout <branch_name/commit_id>: Belirtilen branc/commit'e geçiş yapar.
+git checkout -b <branch_name>: Belirtilen adda bir branch var ise oraya geçer yoksa bir o ad ile yeni bir branch oluşturur ve geçiş yapar.
+git switch <branch_name>: Belirtilen addaki branch'e geçiş yapar.
+git merge <branch_name>: Çalışma dalına eklenmek istenen dalı birleştirir.
+  Fast-Forwarding: Bir dalda çalışırken ana dalda hiçbir değişikşik yapılmadan merge işlemi yapılmasıdır.
+		
+		 X__Y__Z                                     Feat
+		/       \   Z'= C+Z  >>>   A__B__C__X__Y__Z__Z' (HEAD)		!!!HEAD: Yapılan son değişikliği işaret eder 
+	A__B__C _________Z'                                  Master
+
+git stash: Çalışma dizininde ana/alt branchteki değişiklikleri geçici olarak saklamayı sağlayan komuttur. Stash'te saklar.
+  git stash apply: En son stash'i uygular ve Stash'te tutulmaya devam eder.
+  git stash pop: En son stash'i uygular ve Stash'ten çıkarılır.
+  git stash list: Stashleri listeler.
+git rebase: Git'te bir dalı başka bir dala temel olarak Lineer bir dal haline getirir.Dalın optimizasyonunu sağlar. Commit kronolojisini değiştirir. Ana dal commitleri önce sıralanır ardından alt dal commitleri sıralanır.
+
+	A__B__C__D__E
+	       \		>>>	A__B__C__D__E__X__Y__Z (Rebase işlemi)
+		X__Y__Z
+
+
+
+
+
+
+
+
+	
